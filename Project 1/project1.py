@@ -33,7 +33,7 @@ fig1 = plt.figure(figsize=(10,6))
 plt.plot(data['Step'], data['X'], label="X")
 plt.plot(data['Step'], data['Y'], label="Y")
 plt.plot(data['Step'], data['Z'], label="Z")
-plt.title("Relationship between Coordinates and Steps")
+plt.title("Figure 1: Relationship between Coordinates and Steps")
 plt.xlabel('Step')
 plt.ylabel('Coordinate')
 plt.legend()
@@ -44,7 +44,7 @@ plt.grid(True)
 fig2 = plt.figure(figsize=(10,6))
 ax = fig2.add_subplot(projection='3d')
 scatter = ax.scatter(data['X'], data['Y'], data['Z'], c=data['Step'], cmap='turbo')
-ax.set_title('3D Scatter of Coordinates by Step')
+ax.set_title("Figure 2: 3D Scatter of Coordinates by Step")
 ax.set_xlabel('X')
 ax.set_ylabel('Y')
 ax.set_zlabel('Z')
@@ -58,7 +58,7 @@ fig2.colorbar(scatter, ax=ax, label='Step')
 corr_matrix = data.corr(method='pearson')
 plt.figure(figsize=(10,6))
 sns.heatmap(np.abs(corr_matrix), annot=True)
-plt.title("Pearson Correlation Matrix")
+plt.title("Figure 3: Pearson Correlation Matrix")
 
 # %%
 # 2.4: Classification Model Development/Engineering
@@ -181,7 +181,7 @@ y_pred_best = best_model.predict(X_test)
 cm = confusion_matrix(y_test, y_pred_best, labels=np.unique(y_train))
 plt.figure(figsize=(10,6))
 sns.heatmap(cm, annot=True, cmap='Blues', xticklabels=np.unique(y_train), yticklabels=np.unique(y_train))
-plt.title("Confusion Matrix: Linear Regression")
+plt.title("Figure 4: Confusion Matrix - Linear Regression")
 
 
 # %%
@@ -218,7 +218,7 @@ for metric, score in stacked_performance.items():
 cm1 = confusion_matrix(y_test, y_pred_best, labels=np.unique(y_train))
 plt.figure(figsize=(10,6))
 sns.heatmap(cm1, annot=True, cmap='Blues', xticklabels=np.unique(y_train), yticklabels=np.unique(y_train))
-plt.title("Confusion Matrix: Linear Regression + Random SVM")
+plt.title("Figure 5: Confusion Matrix - Linear Regression + Random SVM")
 
 
 # %%
