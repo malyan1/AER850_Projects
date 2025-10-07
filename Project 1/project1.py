@@ -57,7 +57,7 @@ fig2.colorbar(scatter, ax=ax, label='Step')
 # Create a heatmap of the absolute Pearson Correlation Matrix of the data
 corr_matrix = data.corr(method='pearson')
 plt.figure(figsize=(10,6))
-sns.heatmap(np.abs(corr_matrix), annot=True)
+sns.heatmap(corr_matrix, annot=True)
 plt.title("Figure 3: Pearson Correlation Matrix")
 
 # %%
