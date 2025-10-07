@@ -76,7 +76,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 # Train variouse ML Models
 
-# Linear Regression
+# Logistic Regression
 pipe_lr = Pipeline([
     ('scaler', StandardScaler()),
     ('clf', LogisticRegression(max_iter=1000, random_state=42))
@@ -181,14 +181,14 @@ y_pred_best = best_model.predict(X_test)
 cm = confusion_matrix(y_test, y_pred_best, labels=np.unique(y_train))
 plt.figure(figsize=(10,6))
 sns.heatmap(cm, annot=True, cmap='Blues', xticklabels=np.unique(y_train), yticklabels=np.unique(y_train))
-plt.title("Figure 4: Confusion Matrix - Linear Regression")
+plt.title("Figure 4: Confusion Matrix - Logistic Regression")
 
 
 # %%
 # 2.6: Stacked Model Performance Analysis
 
 estimators = [
-    ('lr', grid_lr.best_estimator_),     # Linear Regression
+    ('lr', grid_lr.best_estimator_),     # Logistic Regression
     ('svm', rand_svm.best_estimator_)    # SVM from RandomizedSearchCV
 ]
 
@@ -218,8 +218,7 @@ for metric, score in stacked_performance.items():
 cm1 = confusion_matrix(y_test, y_pred_best, labels=np.unique(y_train))
 plt.figure(figsize=(10,6))
 sns.heatmap(cm1, annot=True, cmap='Blues', xticklabels=np.unique(y_train), yticklabels=np.unique(y_train))
-plt.title("Figure 5: Confusion Matrix - Linear Regression + Random SVM")
-
+plt.title("Figure 5: Confusion Matrix - Logistic Regression + Random SVM")
 
 # %%
 # 2.7: Model Evaluation
