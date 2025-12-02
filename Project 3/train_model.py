@@ -31,15 +31,15 @@ if __name__ == '__main__':
         data="Project 3 Data/data/data.yaml",
         epochs=75,
         batch=4,
-        imgsz=960,            # ← major fix for TaskAlignedAssigner
+        imgsz=960,            
         name='pcb_component_detection',
         workers=8,
-        cache='disk',         # ← avoids double caching in memory
+        cache='disk',
         amp=True,
         patience=20,
         verbose=True,
         device=0,
-        close_mosaic=0,       # ← safest configuration
+        close_mosaic=0,
     )
 
     print("\nModel saved to runs/detect/pcb_component_detection/weights/best.pt")
