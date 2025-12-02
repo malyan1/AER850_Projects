@@ -39,7 +39,7 @@ if __name__ == '__main__':
         patience=20,
         verbose=True,
         device=0,
-        close_mosaic=0,
+        close_mosaic=10,
     )
 
     print("\nModel saved to runs/detect/pcb_component_detection/weights/best.pt")
